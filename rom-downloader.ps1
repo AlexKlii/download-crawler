@@ -414,15 +414,15 @@ function Invoke-DownloadWorkflow {
 #                            Main Script Execution                            #
 #-----------------------------------------------------------------------------#
 Write-Host @"
----------------------------------------------------------------------------
-|\/\/\/\|    Hello! This script processes multiple input files.   |/\/\/\/|
-|\/\/\/\|     For each file, it collects URLs and then crawls     |/\/\/\/|
+----------------------------------------------------------------------------
+|\/\/\/\|    Hello! This script processes multiple input files.    |/\/\/\/|
+|\/\/\/\|     For each file, it collects URLs and then crawls      |/\/\/\/|
 |\/\/\/\|    public sites to download files matching your entries. |/\/\/\/|
 |\/\/\/\|  Downloads are neatly organized into subfolders named    |/\/\/\/|
-|\/\/\/\|              after each input file.                     |/\/\/\/|
-|\/\/\/\|                                                         |/\/\/\/|
-|\/\/\/\|               Sit back, relax, and enjoy!               |/\/\/\/|
----------------------------------------------------------------------------
+|\/\/\/\|              after each input file.                      |/\/\/\/|
+|\/\/\/\|                                                          |/\/\/\/|
+|\/\/\/\|               Sit back, relax, and enjoy!                |/\/\/\/|
+----------------------------------------------------------------------------
 "@
 
 # Folder containing the input files (e.g., gb.txt, gba.txt, etc.)
