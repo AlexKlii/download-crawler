@@ -109,6 +109,7 @@ function ConvertTo-SafeName {
         [string]$Item
     )
     $lowerItem = $Item.ToLower()
+
     $tag       = ""
     if ($allowBetaDemo) {
         $match = [regex]::Match($lowerItem, $preReleasePattern)
@@ -116,9 +117,20 @@ function ConvertTo-SafeName {
             $tag = $match.Groups["tag"].Value
         }
     }
+
+    # Check for disc pattern e.g. (disc 1) or [disc 2]
+    $discTag = ""
+    $discMatch = [regex]::Match($lowerItem, "(?i)[\(\[]\s*disc\s*(?<disc>\d+)\s*[\)\]]")
+    if ($discMatch.Success) {
+        $discTag = "disck" + $discMatch.Groups["disc"].Value
+    }
+
     $safeName = $lowerItem -replace "\(.*$", "" -replace "(\s?(T|t)he | of | or | is | a | an )", "" -replace "[^a-z0-9]", ""
     if ($tag -ne "") {
-        $safeName += ($tag -replace "\s+", "")
+        $safeName += ($tag -replace "\s+", "") # Append beta/demo tag if present
+    }
+    if ($discTag -ne "") {
+        $safeName += ($discTag -replace "\s+", "") # Append disc tag if found
     }
     
     return $safeName
