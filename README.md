@@ -62,6 +62,7 @@ This PowerShell script is designed to automate the process of downloading ROMs f
 
 ## Troubleshooting
 
+- **AuthorizationManager check failed**: Windows may block script downloads. To resolve this, right-click on the script files and select `Properties`. Under the `Security` section, check the `Unblock` box and apply the changes. Do this for both `./rom-downloader.ps1` and `modules/log-modules.psm1` files.
 - **No URLs Provided**: If you don't provide any URLs for an input file, the script will exit with an error message.
 - **Failed Downloads**: If a download fails, the script will log the error and continue with the next file. Check the log for details on why the download failed.
 - **No Input Files**: If no input files are found in the `./roms-lists` folder, the script will exit with an error message.

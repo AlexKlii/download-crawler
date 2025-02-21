@@ -1,4 +1,4 @@
-Import-Module ".\log-module.psm1"
+Import-Module ".\modules\log-module.psm1"
 
 Add-Type -AssemblyName System.Windows.Forms
 
@@ -303,7 +303,7 @@ function Save-DownloadedFiles {
     }
 
     $downloadTasks | ForEach-Object -Parallel {
-        Import-Module ".\log-module.psm1"
+        Import-Module ".\modules\log-module.psm1"
         try {
             Invoke-WebRequest -Uri $_.Url -OutFile $_.OutFile -TimeoutSec 300
             Write-Host "  + Downloaded $($_.LinkText)"
